@@ -4,7 +4,7 @@ import {
   HitType,
   IVisitorCacheImplementation,
   VisitorCacheDTO,
-} from "@flagship.io/js-sdk/dist/index.lite";
+} from "@flagship.io/js-sdk/dist/index.browser.lite";
 
 import cookie from "cookie";
 
@@ -24,7 +24,7 @@ const html = (
 ) => `<!DOCTYPE html>
 <body>
   <h1>Hello World from ${region}</h1>
-  <p>This is my Cloudflare Edge Worker using Flagship for the visitorID : <span style="color: red;">${visitorId}</span> <br/>  the flag <span style="color: red;">${flagValue}</span>.</p>
+  <p>This is my Cloudflare Worker using Flagship for the visitorID : <span style="color: red;">${visitorId}</span> assigned on flag <span style="color: red;">${flagValue}</span>.</p>
 </body>`;
 
 const FS_VISITOR_ID_COOKIE_NAME = "fs_visitor_id";
@@ -53,8 +53,8 @@ export default {
 
     // Start the SDK
     Flagship.start(env.ENV_ID, env.API_KEY, {
-      decisionMode: DecisionMode.BUCKETING_EDGE,
-      visitorCacheImplementation,
+      decisionMode: DecisionMode.BUCKETING_EDGE, // Set decisionMode to BUCKETING_EDGE
+      visitorCacheImplementation, // set visitorCacheImplementation
       initialBucketing: bucketingData, // Set bucketing data fetched from flagship CDN
     });
 

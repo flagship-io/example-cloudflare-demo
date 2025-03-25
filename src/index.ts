@@ -4,7 +4,7 @@ import {
   HitType,
   IVisitorCacheImplementation,
   VisitorCacheDTO,
-} from "@flagship.io/js-sdk/dist/index.browser.lite";
+} from "@flagship.io/js-sdk/dist/edge.js";
 
 import cookie from "cookie";
 
@@ -52,7 +52,7 @@ export default {
     };
 
     // Start the SDK
-    Flagship.start(env.ENV_ID, env.API_KEY, {
+    await Flagship.start(env.ENV_ID, env.API_KEY, {
       decisionMode: DecisionMode.BUCKETING_EDGE, // Set decisionMode to BUCKETING_EDGE
       visitorCacheImplementation, // set visitorCacheImplementation
       initialBucketing: bucketingData, // Set bucketing data fetched from flagship CDN
@@ -65,13 +65,14 @@ export default {
 
     const visitor = Flagship.newVisitor({
       visitorId, // if no visitor id exists from the cookie, the SDK will generate one
+      hasConsented: true,
     });
 
     await visitor.fetchFlags();
 
-    const flag = visitor.getFlag("my_flag_key", "default-value");
+    const flag = visitor.getFlag("my_flag_key" );
 
-    const flagValue = flag.getValue();
+    const flagValue = flag.getValue("default-value");
 
     await visitor.sendHit({
       type: HitType.PAGE,

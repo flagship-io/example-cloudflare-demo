@@ -27,10 +27,10 @@
     escape-string-regexp "^4.0.0"
     rollup-plugin-node-polyfills "^0.2.1"
 
-"@flagship.io/js-sdk@^5.0.0-alpha.2":
-  version "5.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@flagship.io/js-sdk/-/js-sdk-5.0.0-alpha.2.tgz#02c9023f6435142144bf6336215cee1a19655a41"
-  integrity sha512-wbuvnJe1Egrbn4BYC4jdqhbufdECBAaHFwUjsSL+L/rLklGUuGC8BQux7WFnf/QEXvpuyIdhrGTuAcdH/DwAeg==
+"@flagship.io/js-sdk@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@flagship.io/js-sdk/-/js-sdk-5.0.1.tgz#4e03180111e7564c75c446f64107ba05f0aaf4a4"
+  integrity sha512-ybONTpMZORE6mX+Ph4klS/bh+L2M9bkfVbGgkkB6AfPYg3C8bFQWcm9y55D9BWWYufZCPb93SzxzuG/KououqQ==
   dependencies:
     events "^3.3.0"
     follow-redirects "^1.15.2"
